@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    
+
+
+    stages {
+        stage("Check out") {
+            steps {
+                script {
+                    git branch: 'main', url: 'https://github.com/ShruthiJohara/jenkins.git';
+                }
+            }
+        }
+
+        stage("mvn build") {
+            steps {
+                script {
+                    sh "mvn clean package"
+                }
+            }
+        }
+
+     }
+        }
